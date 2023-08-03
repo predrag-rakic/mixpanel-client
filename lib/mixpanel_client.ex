@@ -1,18 +1,13 @@
 defmodule MixpanelClient do
-  @moduledoc """
-  Documentation for `MixpanelClient`.
-  """
+  @moduledoc false
 
-  @doc """
-  Hello world.
+  use Mixpanel, otp_app: :mixpanel_client
 
-  ## Examples
+  def track(event, properties \\ %{}, opts \\ []) do
+    super(event, properties, opts)
+  end
 
-      iex> MixpanelClient.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def engage(distinct_id, operation, value \\ %{}, opts \\ []) do
+    super(distinct_id, operation, value, opts)
   end
 end
